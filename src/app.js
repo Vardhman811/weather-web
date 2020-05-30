@@ -2,7 +2,7 @@ const path =require('path')
 const express=require('express')
 const hbs=require('hbs')
 const forecast=require('./utils/forecast')
-
+const port=process.env.PORT || 3000
 const app=express()
 app.set('view engine','hbs')
 app.set('views',path.join(__dirname,"../templates/views"))
@@ -77,6 +77,6 @@ app.get('*',(req,res)=>{
     res.send("404 not found")
 })
 
-app.listen(3000,()=>{
-    console.log('server is on port 3000')
+app.listen(port,()=>{
+    console.log('server is on port '+port)
 })
